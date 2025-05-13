@@ -1,6 +1,7 @@
 <?php
 //src/User.php
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 #[ORM\Entity]
 #[ORM\Table(name: 'users')]
 class User
@@ -24,5 +25,12 @@ class User
     public function setName(string $name):void
     {
         $this->name =$name;
+    }
+    private $reportedBugs = null;
+    private $assignedBugs = null;
+    public function __construct()
+    {
+        $this->reportedBugs = new ArrayCollection();
+        $this->assignedBugs = new ArrayCollection();
     }
 }
