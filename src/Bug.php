@@ -50,9 +50,7 @@ class Bug
     public function getStatus():string {
         return $this->status;
     }
-
     
-
     public function __construct()
     {
         $this->products = new ArrayCollection();
